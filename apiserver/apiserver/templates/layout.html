@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Visite de l'ENSTA Bretagne. Référentiel des données et API REST</title>   
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta http-equiv="Content-Type" content="application/html5; charset=utf-8" />
+    <meta name="description" content="Référentiel des données et API REST SERVER" />
+    <meta name="robots" content="index, follow" />
+  </head>
+
+    <body>
+        <header id="banner">
+            <h1 id="banner">Visite de l'ENSTA Bretagne</h1>
+            <p id="banner">Référentiel des données et API REST</p>
+        </header>
+        <div class="menu">
+            <ul>
+                <li><a href="{{ url_for('index')}}">Index</a></li>
+                <li><a href="{{ url_for('apropos')}}">À propos</a></li>
+            </ul>
+        </div>
+       <section id="wrapper"> 
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+
+       {% block content %}
+       {% endblock %}
+       </section>
+  </body>
+</html>
+
